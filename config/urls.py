@@ -16,6 +16,8 @@ Including another URLconf
 from django.apps import apps
 from django.urls import include, path
 from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('i18n/', include('django.conf.urls.i18n')),
@@ -25,5 +27,7 @@ urlpatterns = [
 
     path('admin/', admin.site.urls),
 
-    path('', include(apps.get_app_config('oscar').urls[0])),
-]
+    path('', include('pages.urls')),
+
+    path('shop/', include(apps.get_app_config('oscar').urls[0])),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -79,6 +79,9 @@ INSTALLED_APPS = [
     'treebeard',
     'sorl.thumbnail',   # Default thumbnail backend, can be replaced
     'django_tables2',
+
+    # local apps
+    'pages',
 ]
 
 SITE_ID = 1
@@ -187,7 +190,7 @@ STATIC_URL = '/static/'
 
 #Media
 MEDIA_URL='/media/'
-MEDIA_ROOT=BASE_DIR.joinpath('media')
+MEDIA_ROOT = BASE_DIR.joinpath('media')
 
 #Default auto field
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
